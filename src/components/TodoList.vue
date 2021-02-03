@@ -4,6 +4,14 @@
         <button></button>
         <p>Makaroner</p>
     </li>
+    <li>
+        <button></button>
+        <p>Köttbullar</p>
+    </li>
+    <li>
+        <button></button>
+        <p>Mjölk</p>
+    </li>
   </ul>
 </template>
 
@@ -29,7 +37,7 @@ export default {
     background-color: rgb(199, 199, 199);
     display: flex;
     align-items: center;
-    
+    margin-bottom: 6px;
     border-radius: 2px;
 }
 
