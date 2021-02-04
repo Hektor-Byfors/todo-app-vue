@@ -1,6 +1,6 @@
 <template>
     <div class="headericon">
-        <h1 style="color:gray;">*insert icon*</h1>
+        <span class="material-icons mainIcon">local_dining</span>
         <h1>TEFLON</h1>
         <p class="iconp">När det inte fastnar</p>
     </div>
@@ -22,15 +22,20 @@ export default {
         flex-direction: column;
         margin: 30px 0;
     }
-    
-    h1 {
-        margin: 0;
-    }
 
     .iconp {
         font-weight: 500;
         margin: 0;
-        font-size: 12px;
+        font-size: 13px;
     }
 
+    h1 {
+        margin: 0;
+    }
+
+    .mainIcon{
+        margin: 0;
+        font-size: 50px;
+        padding: 0;
+    }
 </style>

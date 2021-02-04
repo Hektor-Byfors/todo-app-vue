@@ -1,17 +1,16 @@
 <template>
-    <p class="infop">Du har <span>{{ todoListings.length }}</span> todos kvar att göra</p>
+    <p class="infop">Du har <span>{{ todoListings.length }}</span> todos kvar i listan</p>
 
     <ul class="ul-list">
         <li v-for="(list, index) in todoListings">
             <button
-            v-on:click="toggleShowCheck(index)"
-            v-bind:class="{ checked: todoListings.checked }"
+            v-bind:class="{ checked: list.checked }"
+            v-on:click="toggleShowCheck(list)"
             >
             <span class="material-icons">done</span>
             </button>
             <p>{{ list.todoItem }}</p>
             <span 
-            v-bind:class="{ hoverRemove: todoListings.hoverRemove }"
             class="material-icons removeLi"
             v-on:click="removeTodo(index)"
             >
@@ -21,8 +20,8 @@
     </ul>
 
     <div class="inputField">
-        <input type="text" placeholder="Input field" v-model="newTodo">
-        <p v-on:click="addTodo()">Lägg till todo</p>
+        <input type="text" placeholder="Potatismjöl" v-model="newTodo">
+        <p v-on:click="addTodo()">Lägg till</p>
     </div>
 </template>
 
@@ -32,14 +31,14 @@ export default {
     return {
         newTodo: 'Ketchup',
         todoListings: [
-            {checked: false, todoItem: 'Köttbullar'},
-            {checked: false, todoItem: 'Makaroner'}
+            {todoItem: 'Köttbullar', checked: false},
+            {todoItem: 'Makaroner', checked: false}
         ]
     }
 },
 methods: {
-    toggleShowCheck() {
-        this.todoListings.checked = !this.todoListings.checked
+    toggleShowCheck(list) {
+        list.checked = !list.checked
     },
     addTodo() {
         if(this.newTodo.trim().length == 0) {
