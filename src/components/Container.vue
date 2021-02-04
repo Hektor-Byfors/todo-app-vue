@@ -1,19 +1,16 @@
 <template>
     <HeaderIcon />
-    <p class="infop">Du har <span>3</span> todos kvar att göra</p>
     <TodoList />
-    <InputForm />
 </template>
 
 <script>
 import HeaderIcon from './HeaderIcon.vue'
 import TodoList from './TodoList.vue'
-import InputForm from './InputForm'
+
 export default {
     components: {
         HeaderIcon,
-        TodoList,
-        InputForm
+        TodoList
     }
 }
 </script>
