@@ -1,11 +1,11 @@
 <template>
-    <p class="infop">Du har <span>{{ todoListings.length }}</span> todos kvar i listan</p>
+    <p class="infop">Du har <span>{{ todoListings.length - countingDone() }}</span> todos kvar att göra!</p>
 
     <ul class="ul-list">
         <li v-for="(list, index) in todoListings">
             <button
             v-bind:class="{ checked: list.checked }"
-            v-on:click="toggleShowCheck(list)"
+            v-on:click="toggleShowCheck(list); countingDone()"
             >
             <span class="material-icons">done</span>
             </button>
@@ -54,6 +54,13 @@ methods: {
     },
     removeTodo(index) {
         this.todoListings.splice(index, 1)
+    },
+    countingDone() {
+        let done = 0
+        for(let i = 0; i < this.todoListings.length; i++) {
+            if(this.todoListings[i].checked === true) done++;
+        }
+        return done
     }
 }
 }
